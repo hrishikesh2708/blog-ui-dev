@@ -1,12 +1,25 @@
 import { Button, Checkbox, Grid, Typography } from '@material-ui/core';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useStyles } from './styles';
 import LoginPageSVG from '../../images/LoginPageSVG';
 import Logo from '../../images/Logo';
+import { useInjectSaga } from '../../utils/injectSaga';
+import saga from './saga';
+import { loginAction } from './actions';
 
 const LoginPage = () => {
+  useInjectSaga({ key: 'LoginPage', saga });
+
+  const dispatch = useDispatch();
   const classes = useStyles();
+
+  const loginInitiator = () => {
+    dispatch(loginAction());
+  };
+
   const [mailFocus, setMailFocus] = React.useState('none');
+
   const setFocused = name => {
     if (name === 'mail') {
       setMailFocus('mail');
@@ -14,6 +27,7 @@ const LoginPage = () => {
       setMailFocus('name');
     }
   };
+
   return (
     <Grid
       container
@@ -94,7 +108,11 @@ const LoginPage = () => {
               alignItems="center"
             >
               <>
-                <Button color="secondary" className={classes.loginButton}>
+                <Button
+                  onClick={loginInitiator}
+                  color="secondary"
+                  className={classes.loginButton}
+                >
                   LOGIN
                 </Button>
                 <Button className={classes.signUpButton}>SIGN UP</Button>

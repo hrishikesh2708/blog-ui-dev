@@ -1,8 +1,10 @@
+import { grey } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
+import theme from '../../theme/theme';
 export const useStyles = makeStyles(() => ({
   root: {
-    width: '100vw',
-    height: '100vh',
+    width: '100%',
+    height: '100%',
   },
   left: {
     width: '40%',
@@ -14,39 +16,42 @@ export const useStyles = makeStyles(() => ({
     transform: 'scale(0.55)',
   },
   logoBox: {
-    height: '80px',
-    width: '400px',
+    height: theme.typography.pxToRem(80),
+    width: theme.typography.pxToRem(400),
     overflow: 'hidden',
     position: 'relative',
-    top: '40px',
-    left: '100px',
-    borderLeft: '30px solid hsla(228, 100%, 69%, 1)',
+    top: theme.typography.pxToRem(40),
+    left: theme.typography.pxToRem(100),
+    borderLeft: `${theme.typography.pxToRem(30)} solid ${
+      theme.palette.primary.main
+    }`,
   },
   logo: {
     position: 'absolute',
-    top: '-20px',
+    top: theme.typography.pxToRem(-20),
   },
   inputFieldsContainer: {
-    margin: '120px 0 0 100px',
+    margin: `${theme.typography.pxToRem(120)} 0 0 ${theme.typography.pxToRem(
+      100,
+    )}`,
   },
   welcomeText: {
-    color: ' hsla(228, 100%, 69%, 1)',
+    color: theme.palette.primary.main,
     fontWeight: 600,
   },
   welcomeMessage: {
-    fontFamily: "'Montserrat'",
     width: '80%',
-    color: '#B8B8B8',
+    color: grey[400],
     fontWeight: 200,
-    marginBottom: '30px',
+    marginBottom: theme.typography.pxToRem(30),
   },
   inputFieldEmail: {
     width: '100%',
     height: '40%',
-    paddingLeft: '10px',
+    paddingLeft: theme.typography.pxToRem(10),
     border: 0,
-    fontSize: '1.5rem',
-    color: 'black',
+    fontSize: theme.typography.pxToRem(24),
+    color: theme.palette.common.black,
     backgroundColor: 'transparent',
     '&:focus': {
       outline: 'none',
@@ -54,81 +59,82 @@ export const useStyles = makeStyles(() => ({
   },
   inputWrap: {
     width: '90%',
-    height: '7vh',
-    border: '1px solid #B8B8B8',
-    borderLeft: '8px solid  #B8B8B8',
+    height: theme.typography.pxToRem(60),
+    border: `${theme.typography.pxToRem(1)} solid ${grey[400]}`,
+    borderLeft: `${theme.typography.pxToRem(8)} solid ${grey[400]}`,
   },
   inputWrapFocused: {
     width: '90%',
-    height: '7vh',
-    border: '1px solid #B8B8B8',
-    borderLeft: '8px solid #61a5c2',
+    height: theme.typography.pxToRem(60),
+    border: `${theme.typography.pxToRem(1)} solid${grey[400]}`,
+    borderLeft: `${theme.typography.pxToRem(8)}  solid ${
+      theme.palette.primary.main
+    }`,
   },
   inputWrapName: {
     width: '90%',
-    height: '7vh',
-    border: '1px solid #B8B8B8',
-    borderLeft: '8px solid  #B8B8B8',
+    height: theme.typography.pxToRem(60),
+    border: `${theme.typography.pxToRem(1)} solid${grey[400]}`,
+    borderLeft: `${theme.typography.pxToRem(8)} solid ${grey[400]}`,
     borderTop: 0,
   },
   inputWrapFocusedName: {
     width: '90%',
-    height: '7vh',
-    border: '1px solid #B8B8B8',
-    borderLeft: '8px solid #61a5c2',
+    height: theme.typography.pxToRem(60),
+    border: `${theme.typography.pxToRem(1)} solid${grey[400]}`,
+    borderLeft: `${theme.typography.pxToRem(8)}  solid ${
+      theme.palette.primary.main
+    }`,
     borderTop: 0,
   },
   email: {
-    fontFamily: "'Montserrat'",
     fontWeight: 700,
-    color: '#B8B8B8',
-    marginLeft: '10px',
+    color: grey[400],
+    marginLeft: theme.typography.pxToRem(10),
   },
   checkBoxContainer: {
-    marginTop: '4vh',
+    marginTop: theme.typography.pxToRem(35),
     position: 'relative',
   },
   checkBoxLabel: {
-    color: '#B8B8B8',
-    fontFamily: "'Montserrat'",
+    color: grey[400],
   },
   checkBox: {
     padding: 0,
-    left: '-3px',
+    left: theme.typography.pxToRem(-3),
     '&>.MuiIconButton-label': {
-      color: 'hsla(228, 100%, 69%, 1)',
+      color: theme.palette.primary.main,
     },
   },
   forgotPassword: {
     position: 'absolute',
     right: 65,
-    fontFamily: "'Montserrat'",
     fontWeight: 700,
   },
   ButtonContainer: {
-    marginTop: '100px',
+    marginTop: theme.typography.pxToRem(100),
     width: '90%',
   },
   loginButton: {
-    width: '150px',
-    height: '50px',
-    backgroundColor: '#1597E5',
-    color: 'white',
-    fontSize: '1.2rem',
+    width: theme.typography.pxToRem(150),
+    height: theme.typography.pxToRem(50),
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+    fontSize: theme.typography.pxToRem(20),
     borderRadius: 0,
-    marginRight: '30px',
+    marginRight: theme.typography.pxToRem(30),
     '&:hover': {
-      backgroundColor: '#D1E8E4',
+      backgroundColor: theme.palette.primary.light,
     },
   },
 
   signUpButton: {
-    width: '150px',
-    height: '50px',
+    width: theme.typography.pxToRem(150),
+    height: theme.typography.pxToRem(50),
     backgroundColor: 'transparent',
-    color: 'black',
-    border: '1px solid grey',
+    color: theme.palette.common.black,
+    border: `${theme.typography.pxToRem(1)} solid${grey[400]}`,
     borderRadius: 0,
-    fontSize: '1.2rem',
+    fontSize: theme.typography.pxToRem(20),
   },
 }));
